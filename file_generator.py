@@ -11,7 +11,7 @@ def unique_check(file_path):
         print(f"Wystąpił błąd podczas próby odczytu pliku: {e}")
         return False
 
-def generate_test_set(num_records):
+def generate_dataset(num_records):
 
     courses = pd.read_csv('resources/courses.csv')
     lecturers = pd.read_csv('resources/lecturers.csv')
@@ -37,13 +37,11 @@ def generate_test_set(num_records):
         )
         records.add(record)
 
-    os.makedirs('test_sets', exist_ok=True)
-    i = 1
-    filename = f'test_sets/test_set_{i}.csv'
+    os.makedirs('datasets', exist_ok=True)
+    filename = f'datasets/dataset{num_records}.csv'
     while os.path.exists(filename):
-        i += 1
-        filename = f'test_sets/test_set_{i}.csv'
-    
+        raise ValueError("Zestaw o takim rozmiarze już istnieje.")
+
     with open(filename, 'w', encoding='utf-8') as f:
         f.write("course,lecturer,group,classroom\n")
         for record in records:
@@ -56,4 +54,4 @@ print(unique_check('resources/courses.csv'))
 print(unique_check('resources/groups.csv'))
 print(unique_check('resources/lecturers.csv'))
 
-print(unique_check(generate_test_set(1000)))
+print(unique_check(generate_dataset(100)))
