@@ -53,4 +53,4 @@ class TestDatabase(unittest.TestCase):
         #self.assertEqual(len(classrooms), len(set(classrooms)), "Classrooms are assigned to multiple courses")
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(argv=['first-arg-is-ignored'], exit=False)
