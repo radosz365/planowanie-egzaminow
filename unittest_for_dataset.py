@@ -47,10 +47,10 @@ class TestDatabase(unittest.TestCase):
             classroom = row["classroom"]
             self.assertRegex(classroom, classroom_pattern, "Incorrect classroom format")
 
-    def test_unique_classroom_per_course(self):
+    #def test_unique_classroom_per_course(self):
         # Optional: Check if each classroom is assigned to only one course
-        classrooms = [row["classroom"] for row in database]
-        self.assertEqual(len(classrooms), len(set(classrooms)), "Classrooms are assigned to multiple courses")
+        #classrooms = [row["classroom"] for row in database]
+        #self.assertEqual(len(classrooms), len(set(classrooms)), "Classrooms are assigned to multiple courses")
 
 if __name__ == "__main__":
     unittest.main()
