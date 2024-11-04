@@ -1,20 +1,10 @@
 import unittest
 import re
+import pandas as pd
 
-# Sample data representing the database
-database = [
-    {"course": "Międzynarodowe zarządzanie finansami", "lecturer": "Dr. Anna Lewandowska", "group": "TNW.AG3.GVN.7332.DQB", "classroom": "H236"},
-    {"course": "Budowanie marki online", "lecturer": "Mgr. Tomasz Nowakiewicz", "group": "BFN.OF8.PWR.0279.RWQ", "classroom": "E353"},
-    {"course": "Modelowanie finansowe", "lecturer": "Prof. Marek Wójcik", "group": "OOG.CU9.LTX.5149.CYJ", "classroom": "B135"},
-    {"course": "Tworzenie treści cyfrowych", "lecturer": "Dr hab. Katarzyna Kamiński", "group": "QSC.TR2.PPG.1283.PVD", "classroom": "H251"},
-    {"course": "Zarządzanie polem namiotowym", "lecturer": "Mgr. Jan Wiśniewski", "group": "SZY.OR3.WYO.6406.MXZ", "classroom": "H101"},
-    {"course": "Transformacja cyfrowa", "lecturer": "Prof. Zofia Kowalska", "group": "TJV.BQ7.GMX.2994.NOH", "classroom": "B384"},
-    {"course": "Zarządzanie zmianą", "lecturer": "Dr hab. Andrzej Wójcik", "group": "VVK.PE9.VAU.7412.MSK", "classroom": "E186"},
-    {"course": "Zarządzanie innowacjami", "lecturer": "Dr. Anna Zielińska", "group": "SGT.TY6.GYI.6888.DBD", "classroom": "C320"},
-    {"course": "Studia kulturowe", "lecturer": "Dr hab. Ewa Zielińska", "group": "UIK.YG2.MZB.0483.FSE", "classroom": "B198"},
-    {"course": "Zarządzanie transportem kolejowym", "lecturer": "Mgr. Maria Kamińska", "group": "JSI.BX2.UAJ.4340.SGP", "classroom": "D280"},
-    {"course": "Ekonomia nieruchomości", "lecturer": "Mgr. Zofia Kowalska", "group": "CXC.RY5.YNN.8006.FCS", "classroom": "C379"},
-]
+# Load the CSV file
+data_path = 'dataset1000.csv'
+database = pd.read_csv(data_path).to_dict(orient='records')
 
 class TestDatabase(unittest.TestCase):
 
